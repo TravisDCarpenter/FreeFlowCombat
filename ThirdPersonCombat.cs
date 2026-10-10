@@ -123,9 +123,6 @@ public class ThirdPersonCombat : MonoBehaviour
                 AudioClip randomClip = punchSounds[Random.Range(0, punchSounds.Length)];
                 AudioSource.PlayClipAtPoint(randomClip, hit.point);
 
-                //for testing
-                Invoke(nameof(PauseForAction), 0.1f);
-
                 enemy.OnHitReaction(attackString);
             }
         }
@@ -142,11 +139,6 @@ public class ThirdPersonCombat : MonoBehaviour
         Vector3 position;
         position = target.position;
         return Vector3.MoveTowards(position, transform.position, 0.85f);
-    }
-
-    private void PauseForAction()
-    {
-        Debug.Break();
     }
 
     private void OnDrawGizmos()
